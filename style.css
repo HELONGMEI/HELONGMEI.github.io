@@ -17,7 +17,7 @@ body{
   font-family:var(--kai);font-size:18px;line-height:1.9;
   -webkit-font-smoothing:antialiased;
   /* 纸纹 */
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.4  0 0 0 0 0.3  0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image:url("paper.png");
 }
 img{max-width:100%;display:block}
 a{color:var(--indigo)}
@@ -30,7 +30,7 @@ p{margin:0 0 1em}
 /* ---------- 顶栏 ---------- */
 .top{
   position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:12px clamp(16px,4vw,48px);background:rgba(244,241,232,.92);backdrop-filter:blur(6px);
+  padding:12px clamp(16px,4vw,48px);background:#f4f1e8;
   border-bottom:1px solid var(--line);
 }
 .top-name{font-size:22px;color:var(--ink);text-decoration:none;letter-spacing:.2em}
@@ -53,7 +53,6 @@ p{margin:0 0 1em}
   background:
     radial-gradient(closest-side at 55% 45%,rgba(31,29,26,.10),rgba(31,29,26,.04) 55%,transparent 72%),
     radial-gradient(closest-side at 35% 70%,rgba(51,83,107,.07),transparent 70%);
-  filter:blur(8px);
 }
 .hero-inner{
   position:relative;max-width:1180px;margin:0 auto;
@@ -119,7 +118,7 @@ main{display:block}
 
 /* 照片：带白边，像贴在册页上 */
 .photo{margin:0;background:#fbfaf6;padding:8px 8px 6px;box-shadow:0 1px 0 var(--line),0 12px 26px -18px rgba(40,30,15,.45)}
-.photo img{width:100%;height:auto;cursor:zoom-in}
+.photo img{width:100%;height:auto;cursor:zoom-in;background:#ece7da}
 .photo figcaption,.art figcaption{font-size:15px;color:var(--ink-3);padding:6px 2px 2px;line-height:1.5}
 .tilt-l{transform:rotate(-1.2deg)}.tilt-r{transform:rotate(1.2deg)}
 
@@ -150,7 +149,7 @@ main{display:block}
 /* 作品选：瀑布流 */
 .masonry{columns:3 260px;column-gap:20px}
 .art{break-inside:avoid;margin:0 0 20px;background:#fbfaf6;padding:10px 10px 6px;box-shadow:0 1px 0 var(--line),0 14px 30px -20px rgba(40,30,15,.5)}
-.art img{width:100%;height:auto;cursor:zoom-in;transition:opacity .2s}
+.art img{width:100%;height:auto;cursor:zoom-in;transition:opacity .2s;background:#ece7da}
 .art img:hover{opacity:.92}
 .art figcaption{text-align:center;font-size:17px;color:var(--ink-2)}
 
@@ -211,3 +210,28 @@ main{display:block}
   .tilt-l,.tilt-r{transform:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.viewer[open]{animation:none}}
+
+/* ---------- 新增内容 ---------- */
+.after{margin-top:18px;max-width:40em}
+.features{list-style:none;padding:0;margin:0 0 8px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.features li{padding:16px 18px 16px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.7}
+.features b{display:block;font-weight:400;font-size:21px;color:var(--ink);margin-bottom:2px}
+.features b::before{content:"";display:inline-block;width:.45em;height:.45em;background:var(--cinnabar);transform:rotate(45deg) translateY(-3px);margin-right:.5em}
+.courses{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.course{background:#faf8f2;border:1px solid var(--line);border-top:3px solid var(--ink);padding:22px 24px 20px}
+.course h3{font-size:24px}
+.course p:last-child{margin:0;font-size:16.5px;line-height:1.8}
+.art .desc{display:block;font-size:14.5px;color:var(--ink-3);margin-top:2px;line-height:1.6}
+.en{font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.75;color:var(--ink-2)}
+.en p{max-width:62ch}
+.lead-en{font-size:21px;color:var(--ink);font-style:italic}
+@media (max-width:980px){.features{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.features,.courses{grid-template-columns:1fr}}
+.scroll{max-width:420px}
+.scroll-cap{text-align:center;font-size:16px;color:var(--ink-3);margin-top:12px}
+.hero-inner{grid-template-columns:auto minmax(260px,420px) minmax(0,1fr)}
+.hero-intro{font-size:17.5px;line-height:1.85;max-width:30em;margin-bottom:14px}
+.closing-sub{font-size:18px;color:var(--ink-2);max-width:32em;margin:0 auto 18px}
+@media (max-width:980px){.hero-inner{grid-template-columns:auto minmax(0,1fr)}}
+@media (max-width:760px){.hero-inner{grid-template-columns:1fr}.scroll{width:min(86%,360px)}}
+.motto{font-size:clamp(24px,2.25vw,32px)}
